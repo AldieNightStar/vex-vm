@@ -1,0 +1,9 @@
+:main
+	here 3 repeat
+		test
+	loop
+:
+
+:test
+	"TEST 123" print
+:
