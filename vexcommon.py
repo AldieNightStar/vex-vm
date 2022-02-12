@@ -1,8 +1,9 @@
-T_CALL        = "CALL"
-T_CALL_STATIC = "CALL_STATIC"
-T_PUSH        = "PUSH"
-T_LABEL       = "LABEL"
-T_LABEL_END   = "LABEL_END"
+T_CALL         = "CALL"
+T_CALL_STATIC  = "CALL_STATIC"
+T_PUSH         = "PUSH"
+T_PUSHLABELPOS = "PUSHLABELPOS"
+T_LABEL        = "LABEL"
+T_LABEL_END    = "LABEL_END"
 
 NOP = (T_CALL, "NOP")
 RET = (T_CALL, "ret")

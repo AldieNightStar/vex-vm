@@ -24,6 +24,8 @@ def first_compile(arr):
 			elif token.value == ":":
 				lname = tryPop(labelStack)
 				res.append((T_LABEL_END, lname))
+			elif token.value.startswith("@") and len(token.value) > 1:
+				res.append((T_PUSHLABELPOS, token.value[1:]))
 			else:
 				res.append((T_CALL, token.value))
 		elif token.type in (T_STR, T_NUM):
@@ -54,6 +56,9 @@ def process_labels(arr):
 		elif token[0]==T_CALL:
 			if token[1] in labs:
 				arr[pos] = (T_CALL_STATIC, labs[token[1]])
+		elif token[0]==T_PUSHLABELPOS:
+			if token[1] in labs:
+				arr[pos] = (T_PUSH, labs[token[1]])
 		pos+=1
 	return arr
 

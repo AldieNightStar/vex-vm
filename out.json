@@ -4,36 +4,8 @@
         "NOP"
     ],
     [
-        "CALL",
-        "here"
-    ],
-    [
         "PUSH",
-        3.0
-    ],
-    [
-        "CALL",
-        "repeat"
-    ],
-    [
-        "CALL_STATIC",
-        7
-    ],
-    [
-        "CALL",
-        "loop"
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        "TEST 123"
+        0
     ],
     [
         "CALL",
