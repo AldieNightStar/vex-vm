@@ -1,3 +1,7 @@
 :main
-	@main print
+	"Hello!" print
+:
+
+:jjj
+	"JJJ" print
 :

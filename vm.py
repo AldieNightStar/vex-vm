@@ -54,3 +54,16 @@ def api_swap(s):
 # ====================
 # Logical
 # ====================
+
+def api_then(s):
+	label = int(s.pop())
+	res = int(s.pop())
+	if res == 1:
+		return label
+
+def api_not(s):
+	res = int(s.pop())
+	if res == 1:
+		s.append(0)
+	else:
+		s.append(1)

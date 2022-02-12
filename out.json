@@ -5,7 +5,27 @@
     ],
     [
         "PUSH",
-        0
+        "Hello!"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        5
+    ],
+    [
+        "CALL",
+        "ret"
+    ],
+    [
+        "CALL",
+        "NOP"
+    ],
+    [
+        "PUSH",
+        "JJJ"
     ],
     [
         "CALL",
