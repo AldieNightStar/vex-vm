@@ -4,24 +4,20 @@
         "NOP"
     ],
     [
-        "PUSH",
-        10.0
-    ],
-    [
-        "PUSH",
-        20.0
+        "CALL_STATIC",
+        6
     ],
     [
         "CALL",
-        "<"
+        "NOP"
     ],
     [
         "PUSH",
-        7
+        "TEST"
     ],
     [
         "CALL",
-        "then"
+        "print"
     ],
     [
         "CALL",
@@ -29,7 +25,7 @@
     ],
     [
         "CALL",
-        "NOP"
+        "drop"
     ],
     [
         "PUSH",

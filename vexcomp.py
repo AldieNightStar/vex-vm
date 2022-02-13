@@ -14,6 +14,14 @@ def check_token_multiplier(s): # Returns token, count
 		return arr[0], int(arr[1])
 	return s, 0
 
+def find_label_end(arr, pos, name):
+	while pos < len(arr):
+		token = arr[pos]
+		if token[0]==T_LABEL_END and token[1] == name:
+			return pos
+		pos += 1
+	return None
+
 def append_times(arr, el, times=1):
 	if times < 1:
 		times = 1
@@ -27,7 +35,6 @@ def first_compile(arr):
 	while pos<len(arr):
 		token=arr[pos]
 		pos += 1
-		lebalStack = []
 		if token.type == T_SPC:
 			# Get token multiplier (*123 after token name)
 			tokVal, tokMul = check_token_multiplier(token.value)
@@ -49,6 +56,35 @@ def first_compile(arr):
 		elif token.type in (T_STR, T_NUM):
 			res.append((T_PUSH, token.value))
 	return res
+
+def process_skips(arr):
+	pos = 0
+	willSkip = False
+	while pos < len(arr):
+		token = arr[pos]
+		# If token is skip command
+		if token[0]==T_CALL and token[1]=="skip":
+			arr[pos]=NOP
+			# FIND next token
+			nextTok = arr[pos+1]
+			# IF token is label, find it's end
+			if nextTok[0] == T_LABEL:
+				# Nake (CALL_STATIC, label_end_pos)
+				endPos = find_label_end(arr, pos, nextTok[1])
+				if endPos != None:
+					arr[pos] = (T_CALL_STATIC, endPos+1)
+		pos += 1
+	return arr
+
+def process_nops(arr):
+	res = []
+	for a in arr:
+		if a[0]==T_CALL and a[1]=="NOP":
+			continue
+		else:
+			res.append(a)
+	return res
+
 
 # Here we will replace label names with numbers.
 # Also label declarations will replaced with NOP's
@@ -83,6 +119,8 @@ def process_labels(arr):
 def compile(src):
 	arr = lex(src)
 	arr = first_compile(arr)
+	arr = process_nops(arr)
+	arr = process_skips(arr)
 	arr = process_labels(arr) # Latest compilation as labels already defined
 	return arr
 

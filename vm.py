@@ -3,6 +3,9 @@ from vexcommon import *
 ops={}
 
 def api_print(s):
+	if len(s) < 1:
+		print("Nothing to pop()")
+		return
 	print(s.pop())
 
 def api_dump(s):

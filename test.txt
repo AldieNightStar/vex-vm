@@ -1,7 +1,6 @@
 :main
-	10 20 < @ok then
-:
-
-:ok
+	skip :test_lab
+		"TEST" print
+	: drop
 	"OK" print
 :
