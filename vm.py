@@ -9,18 +9,28 @@ def api_print(s):
 	print(s.pop())
 
 def api_dump(s):
-	print("DUMP", s)
+	print("DUMP:")
+	print("\tSTACK 1", s)
+	print("\tSTACK 2", SSTACK)
 
 # ====================
 # REPEAT LOOP
 # ====================
 API_REPEAT_STACK = []
 
+# Usage
+#   here 10 repeat
+#     # Do something
+#   loop
 def api_repeat(s):
 	count = s.pop()
 	start = s.pop()+2
 	API_REPEAT_STACK.append((start, count))
 
+# Usage
+#   here 10 repeat
+#     # Do something
+#   loop
 def api_loop(s):
 	if len(API_REPEAT_STACK) < 1:
 		return
@@ -31,6 +41,11 @@ def api_loop(s):
 	API_REPEAT_STACK.append(rep)
 	return rep[0]
 
+# Usage
+#   here 10 repeat
+#     # Prints iteration count
+#     iter print
+#   loop
 def api_iter(s):
 	if len(API_REPEAT_STACK) < 1:
 		s.append(0)

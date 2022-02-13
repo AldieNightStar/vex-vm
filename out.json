@@ -4,32 +4,20 @@
         "NOP"
     ],
     [
-        "CALL_STATIC",
-        3
+        "PUSH",
+        1.0
     ],
     [
         "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        10.0
-    ],
-    [
-        "PUSH",
-        20.0
-    ],
-    [
-        "PUSH",
-        30.0
+        "print"
     ],
     [
         "CALL_STATIC",
-        10
+        13
+    ],
+    [
+        "PUSH",
+        2.0
     ],
     [
         "CALL",
@@ -44,20 +32,44 @@
         "NOP"
     ],
     [
-        "CALL",
-        "save"
+        "PUSH",
+        44.0
     ],
     [
         "CALL",
-        "+"
+        "print"
+    ],
+    [
+        "PUSH",
+        55.0
     ],
     [
         "CALL",
-        "+"
+        "print"
     ],
     [
         "CALL",
-        "restore"
+        "ret"
+    ],
+    [
+        "CALL",
+        "NOP"
+    ],
+    [
+        "PUSH",
+        "MID"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "drop"
+    ],
+    [
+        "PUSH",
+        7
     ],
     [
         "CALL",
