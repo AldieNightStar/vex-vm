@@ -35,7 +35,7 @@ def run(api, dat):
 				f = api_get(api, op[1])
 				if f == None:
 					raise Exception(f"No such command: '{op[1]}'")
-				newIp = f(stack)
+				newIp = f(ip, stack)
 				if type(newIp) is int:
 					ip = newIp
 		elif op[0] == T_CALL_STATIC: # Push IP to stack and goto

@@ -1,8 +1,7 @@
 :main
-	10 =a
-	20 =b
-	$a print
-	$b print
-	$a print
-	$b print
+	3 =a
+
+	$a repeat
+		iter print
+	loop
 :

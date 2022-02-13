@@ -2,13 +2,13 @@ from vexcommon import *
 
 ops={}
 
-def api_print(s):
+def api_print(ip, s):
 	if len(s) < 1:
 		print("Nothing to pop()")
 		return
 	print(s.pop())
 
-def api_dump(s):
+def api_dump(ip, s):
 	print("DUMP:")
 	print("\tSTACK 1", s)
 	print("\tSTACK 2", SSTACK)
@@ -19,19 +19,18 @@ def api_dump(s):
 API_REPEAT_STACK = []
 
 # Usage
-#   here 10 repeat
+#   10 repeat
 #     # Do something
 #   loop
-def api_repeat(s):
+def api_repeat(ip, s):
 	count = s.pop()
-	start = s.pop()+2
-	API_REPEAT_STACK.append((start, count))
+	API_REPEAT_STACK.append((ip, count))
 
 # Usage
-#   here 10 repeat
+#   10 repeat
 #     # Do something
 #   loop
-def api_loop(s):
+def api_loop(ip, s):
 	if len(API_REPEAT_STACK) < 1:
 		return
 	rep = API_REPEAT_STACK.pop()
@@ -42,11 +41,11 @@ def api_loop(s):
 	return rep[0]
 
 # Usage
-#   here 10 repeat
+#   10 repeat
 #     # Prints iteration count
 #     iter print
 #   loop
-def api_iter(s):
+def api_iter(ip, s):
 	if len(API_REPEAT_STACK) < 1:
 		s.append(0)
 		return
@@ -56,15 +55,15 @@ def api_iter(s):
 # ====================
 # Stack Ops
 # ====================
-def api_dup(s):
+def api_dup(ip, s):
 	v = s.pop()
 	s.append(v)
 	s.append(v)
 
-def api_drop(s):
+def api_drop(ip, s):
 	s.pop()
 
-def api_swap(s):
+def api_swap(ip, s):
 	a = s.pop()
 	b = s.pop()
 	s.append(a)
@@ -75,13 +74,13 @@ def api_swap(s):
 # Logical
 # ====================
 
-def api_then(s):
+def api_then(ip, s):
 	label = int(s.pop())
 	res = int(s.pop())
 	if res == 1:
 		return label
 
-def api_not(s):
+def api_not(ip, s):
 	res = int(s.pop())
 	if res == 1:
 		s.append(0)
@@ -89,7 +88,7 @@ def api_not(s):
 		s.append(1)
 
 def __logical(f):
-	def log(s):
+	def log(ip, s):
 		b = s.pop()
 		a = s.pop()
 		if f(a,b):
@@ -114,14 +113,14 @@ MEM = {}
 
 # Usage:
 #   10 "a" set
-def api_set(s):
+def api_set(ip, s):
 	name = s.pop()
 	val  = s.pop()
 	MEM[name] = val
 
 # Usage:
 #   "a" get
-def api_get(s):
+def api_get(ip, s):
 	s.append(MEM.get(s.pop()))
 
 
@@ -131,7 +130,7 @@ def api_get(s):
 
 # Usage:
 #   @someLabel here call
-def api_call(s):
+def api_call(ip, s):
 	herePos = int(s.pop())
 	labelPos = int(s.pop())
 	s.append(herePos+1)
@@ -143,7 +142,7 @@ def api_call(s):
 # ====================
 
 def __mathematical(f):
-	def proc(s):
+	def proc(ip, s):
 		a = s.pop()
 		b = s.pop()
 		s.append(f(b,a))
@@ -161,8 +160,8 @@ ops["%"] = __mathematical(lambda a,b: a%b)
 
 SSTACK = []
 
-def api_save(s):
+def api_save(ip, s):
 	SSTACK.append(s.pop())
 
-def api_restore(s):
+def api_restore(ip, s):
 	s.append(SSTACK.pop())

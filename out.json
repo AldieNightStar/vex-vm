@@ -5,7 +5,7 @@
     ],
     [
         "PUSH",
-        10.0
+        3.0
     ],
     [
         "PUSH",
@@ -17,18 +17,6 @@
     ],
     [
         "PUSH",
-        20.0
-    ],
-    [
-        "PUSH",
-        "b"
-    ],
-    [
-        "CALL",
-        "set"
-    ],
-    [
-        "PUSH",
         "a"
     ],
     [
@@ -37,43 +25,19 @@
     ],
     [
         "CALL",
-        "print"
-    ],
-    [
-        "PUSH",
-        "b"
+        "repeat"
     ],
     [
         "CALL",
-        "get"
+        "iter"
     ],
     [
         "CALL",
         "print"
     ],
     [
-        "PUSH",
-        "a"
-    ],
-    [
         "CALL",
-        "get"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "PUSH",
-        "b"
-    ],
-    [
-        "CALL",
-        "get"
-    ],
-    [
-        "CALL",
-        "print"
+        "loop"
     ],
     [
         "CALL",
