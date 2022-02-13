@@ -31,6 +31,7 @@ def append_times(arr, el, times=1):
 def first_compile(arr):
 	pos=0
 	res=[]
+	globalVars = False
 	labelStack = []
 	while pos<len(arr):
 		token=arr[pos]
@@ -45,14 +46,24 @@ def first_compile(arr):
 			#    name - simple call
 			# Get token multiplier (*123 after token name)
 			tokVal, tokMul = check_token_multiplier(token.value)
-			# =name will be replaced with "name" set
-			if tokVal.startswith("=") and len(tokVal) > 1:
+			# =name will be replaced with "name" lset
+			if tokVal == "global":
+				globalVars = True
+			elif tokVal == "endglobal":
+				globalVars = False
+			elif tokVal.startswith("=") and len(tokVal) > 1:
 				res.append((T_PUSH, tokVal[1:]))
-				res.append((T_CALL, "set"))
-			# $name will be replaced with "name" get
+				if globalVars:
+					res.append((T_CALL, "set"))
+				else:
+					res.append((T_CALL, "lset"))
+			# $name will be replaced with "name" lget
 			elif tokVal.startswith("$") and len(tokVal) > 1:
 				res.append((T_PUSH, tokVal[1:]))
-				res.append((T_CALL, "get"))
+				if globalVars:
+					res.append((T_CALL, "get"))
+				else:
+					res.append((T_CALL, "lget"))
 			# :name - means label declaration	
 			elif tokVal.startswith(":") and len(tokVal) > 1:
 				lname = tokVal[1:]
