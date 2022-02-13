@@ -29,7 +29,7 @@ def run(api, dat):
 			else: # Functions from api
 				f = api_get(api, op[1])
 				if f == None:
-					raise Exception("No such command: " + op[1])
+					raise Exception(f"No such command: '{op[1]}'")
 				newIp = f(stack)
 				if type(newIp) is int:
 					ip = newIp

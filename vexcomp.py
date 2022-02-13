@@ -8,6 +8,18 @@ TEST=True
 def lex(src):
 	return llex(src)
 
+def check_token_multiplier(s): # Returns token, count
+	if "*" in s:
+		arr = s.split("*", 1)
+		return arr[0], int(arr[1])
+	return s, 0
+
+def append_times(arr, el, times=1):
+	if times < 1:
+		times = 1
+	for i in range(times):
+		arr.append(el)
+
 def first_compile(arr):
 	pos=0
 	res=[]
@@ -17,17 +29,23 @@ def first_compile(arr):
 		pos += 1
 		lebalStack = []
 		if token.type == T_SPC:
-			if token.value.startswith(":") and len(token.value) > 1:
-				lname = token.value[1:]
+			# Get token multiplier (*123 after token name)
+			tokVal, tokMul = check_token_multiplier(token.value)
+			# :name - means label declaration
+			if tokVal.startswith(":") and len(tokVal) > 1:
+				lname = tokVal[1:]
 				res.append((T_LABEL, lname))
 				labelStack.append(lname)
-			elif token.value == ":":
+			# : - means label declaration end
+			elif tokVal == ":":
 				lname = tryPop(labelStack)
 				res.append((T_LABEL_END, lname))
-			elif token.value.startswith("@") and len(token.value) > 1:
-				res.append((T_PUSHLABELPOS, token.value[1:]))
+			# @ - points to label and will be replaced in future to it's number
+			elif tokVal.startswith("@") and len(tokVal) > 1:
+				append_times(res, (T_PUSHLABELPOS, tokVal[1:]), tokMul)
 			else:
-				res.append((T_CALL, token.value))
+				# Another op is as a call
+				append_times(res, (T_CALL, tokVal), tokMul)
 		elif token.type in (T_STR, T_NUM):
 			res.append((T_PUSH, token.value))
 	return res
@@ -65,7 +83,7 @@ def process_labels(arr):
 def compile(src):
 	arr = lex(src)
 	arr = first_compile(arr)
-	arr = process_labels(arr)
+	arr = process_labels(arr) # Latest compilation as labels already defined
 	return arr
 
 def compile_to_json(src, filename):

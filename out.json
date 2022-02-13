@@ -1,31 +1,51 @@
 [
     [
-        "CALL",
-        "NOP"
+        "PUSH",
+        100.0
     ],
     [
-        "PUSH",
-        "Hello!"
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
+    ],
+    [
+        "CALL",
+        "dup"
     ],
     [
         "CALL",
         "print"
     ],
     [
-        "PUSH",
-        5
-    ],
-    [
         "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        "JJJ"
+        "print"
     ],
     [
         "CALL",
@@ -33,6 +53,30 @@
     ],
     [
         "CALL",
-        "ret"
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
     ]
 ]
