@@ -43,6 +43,9 @@ def run(api, dat):
 			ip = op[1]
 		elif op[0] == T_PUSH:
 			stack.append(op[1])
+		elif op[0] == T_GOTO_STATIC:
+			ip = op[1]
+
 
 if __name__ == "__main__":
 	import sys

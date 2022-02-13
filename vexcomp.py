@@ -72,7 +72,7 @@ def process_skips(arr):
 				# Nake (CALL_STATIC, label_end_pos)
 				endPos = find_label_end(arr, pos, nextTok[1])
 				if endPos != None:
-					arr[pos] = (T_CALL_STATIC, endPos+1)
+					arr[pos] = (T_GOTO_STATIC, endPos+1)
 		pos += 1
 	return arr
 

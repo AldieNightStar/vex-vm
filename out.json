@@ -4,7 +4,7 @@
         "NOP"
     ],
     [
-        "CALL_STATIC",
+        "GOTO_STATIC",
         6
     ],
     [
@@ -13,7 +13,7 @@
     ],
     [
         "PUSH",
-        "TEST"
+        "SSS"
     ],
     [
         "CALL",
@@ -24,12 +24,8 @@
         "ret"
     ],
     [
-        "CALL",
-        "drop"
-    ],
-    [
         "PUSH",
-        "OK"
+        "Hello!"
     ],
     [
         "CALL",

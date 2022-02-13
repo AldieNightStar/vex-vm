@@ -1,6 +1,6 @@
 :main
-	skip :test_lab
-		"TEST" print
-	: drop
-	"OK" print
+	skip :abc
+		"SSS" print
+	:
+	"Hello!" print
 :
