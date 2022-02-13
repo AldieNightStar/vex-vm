@@ -5,35 +5,47 @@
     ],
     [
         "PUSH",
-        1.0
+        10.0
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "set"
+    ],
+    [
+        "PUSH",
+        20.0
+    ],
+    [
+        "PUSH",
+        "b"
+    ],
+    [
+        "CALL",
+        "set"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "get"
     ],
     [
         "CALL",
         "print"
     ],
     [
-        "CALL_STATIC",
-        13
-    ],
-    [
         "PUSH",
-        2.0
+        "b"
     ],
     [
         "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        44.0
+        "get"
     ],
     [
         "CALL",
@@ -41,35 +53,27 @@
     ],
     [
         "PUSH",
-        55.0
+        "a"
+    ],
+    [
+        "CALL",
+        "get"
     ],
     [
         "CALL",
         "print"
     ],
     [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
         "PUSH",
-        "MID"
+        "b"
+    ],
+    [
+        "CALL",
+        "get"
     ],
     [
         "CALL",
         "print"
-    ],
-    [
-        "CALL",
-        "drop"
-    ],
-    [
-        "PUSH",
-        7
     ],
     [
         "CALL",

@@ -1,15 +1,8 @@
 :main
-	1 print
-	okk
-	2 print
-:
-
-:zen
-	44 print
-	55 print
-:
-
-:okk
-	"MID" print
-	drop @zen
+	10 =a
+	20 =b
+	$a print
+	$b print
+	$a print
+	$b print
 :

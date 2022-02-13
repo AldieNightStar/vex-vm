@@ -38,8 +38,16 @@ def first_compile(arr):
 		if token.type == T_SPC:
 			# Get token multiplier (*123 after token name)
 			tokVal, tokMul = check_token_multiplier(token.value)
-			# :name - means label declaration
-			if tokVal.startswith(":") and len(tokVal) > 1:
+			# =name will be replaced with "name" set
+			if tokVal.startswith("=") and len(tokVal) > 1:
+				res.append((T_PUSH, tokVal[1:]))
+				res.append((T_CALL, "set"))
+			# $name will be replaced with "name" get
+			elif tokVal.startswith("$") and len(tokVal) > 1:
+				res.append((T_PUSH, tokVal[1:]))
+				res.append((T_CALL, "get"))
+			# :name - means label declaration	
+			elif tokVal.startswith(":") and len(tokVal) > 1:
 				lname = tokVal[1:]
 				res.append((T_LABEL, lname))
 				labelStack.append(lname)
