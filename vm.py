@@ -85,10 +85,12 @@ def api_slen(ip, s):
 # Logical
 # ====================
 
+# 1 @main then
 def api_then(ip, s):
 	label = int(s.pop())
 	res = int(s.pop())
 	if res == 1:
+		s.append(ip)
 		return label
 
 def api_not(ip, s):
@@ -97,6 +99,13 @@ def api_not(ip, s):
 		s.append(0)
 	else:
 		s.append(1)
+
+def api_is_none(ip, s):
+	res = s.pop()
+	if res == None:
+		s.append(1)
+	else:
+		s.append(0)
 
 def __logical(f):
 	def log(ip, s):
@@ -134,6 +143,38 @@ def api_set(ip, s):
 def api_get(ip, s):
 	s.append(MEM.get(s.pop()))
 
+# ====================
+# Local Memory
+# ====================
+
+# Stack based mem
+LMEM = []
+
+def api_local(ip, s):
+	# Add new element to the mem stack
+	LMEM.append({})
+
+def api_endlocal(ip, s):
+	# Just remove last element
+	LMEM.pop()
+
+# Usage:
+#   "a" lget
+def api_lget(ip, s):
+	name = s.pop()
+	if len(LMEM) < 1:
+		api_local(ip, s)
+	s.append(LMEM[-1].get(name))
+
+# Usage:
+#   123 "a" lset
+def api_lset(ip, s):
+	name = s.pop()
+	val  = s.pop()
+	if len(LMEM) < 1:
+		api_local(ip, s)
+	LMEM[-1][name] = val
+
 
 # ====================
 # Call
@@ -154,8 +195,8 @@ def api_call(ip, s):
 
 def __mathematical(f):
 	def proc(ip, s):
-		a = s.pop()
-		b = s.pop()
+		a = float(s.pop())
+		b = float(s.pop())
 		s.append(f(b,a))
 	return proc
 

@@ -4,16 +4,104 @@
         "NOP"
     ],
     [
-        "PUSH",
-        10.0
+        "CALL",
+        "local"
     ],
     [
         "PUSH",
-        20.0
+        32.0
+    ],
+    [
+        "PUSH",
+        "a"
     ],
     [
         "CALL",
-        "eq"
+        "lset"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "endlocal"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
     ],
     [
         "CALL",

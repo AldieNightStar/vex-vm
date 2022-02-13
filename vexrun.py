@@ -18,7 +18,7 @@ def parse_dat(dat):
 	return dat
 
 def run(api, dat, toAdd=None):
-	stack = [10, 100, 200]
+	stack = []
 	if toAdd!=None:
 		for a in toAdd:
 			stack.append(a)
