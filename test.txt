@@ -1,6 +1,5 @@
-:main
-	skip :abc
-		"SSS" print
-	:
-	"Hello!" print
-:
+:init main :
+
+:main 10 20 30 add3 print :
+
+:add3 save + + restore :

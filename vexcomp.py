@@ -122,6 +122,9 @@ def compile(src):
 	arr = process_nops(arr)
 	arr = process_skips(arr)
 	arr = process_labels(arr) # Latest compilation as labels already defined
+	for i in range(len(arr)):
+		print(i, arr[i])
+	print("------")
 	return arr
 
 def compile_to_json(src, filename):

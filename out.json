@@ -4,8 +4,12 @@
         "NOP"
     ],
     [
-        "GOTO_STATIC",
-        6
+        "CALL_STATIC",
+        3
+    ],
+    [
+        "CALL",
+        "ret"
     ],
     [
         "CALL",
@@ -13,7 +17,19 @@
     ],
     [
         "PUSH",
-        "SSS"
+        10.0
+    ],
+    [
+        "PUSH",
+        20.0
+    ],
+    [
+        "PUSH",
+        30.0
+    ],
+    [
+        "CALL_STATIC",
+        10
     ],
     [
         "CALL",
@@ -24,12 +40,24 @@
         "ret"
     ],
     [
-        "PUSH",
-        "Hello!"
+        "CALL",
+        "NOP"
     ],
     [
         "CALL",
-        "print"
+        "save"
+    ],
+    [
+        "CALL",
+        "+"
+    ],
+    [
+        "CALL",
+        "+"
+    ],
+    [
+        "CALL",
+        "restore"
     ],
     [
         "CALL",

@@ -97,8 +97,57 @@ ops["<="]  = __logical(lambda a, b: a <= b)
 # ====================
 MEM = {}
 
+# Usage:
+#   10 "a" set
 def api_set(s):
-	s.append(MEM[s.pop()])
+	name = s.pop()
+	val  = s.pop()
+	MEM[name] = val
 
+# Usage:
+#   "a" get
 def api_get(s):
-	MEM[s.pop()] = s.pop()
+	s.append(MEM.get(s.pop()))
+
+
+# ====================
+# Call
+# ====================
+
+# Usage:
+#   @someLabel here call
+def api_call(s):
+	herePos = int(s.pop())
+	labelPos = int(s.pop())
+	s.append(herePos+1)
+	return labelPos
+
+
+# ====================
+# Math
+# ====================
+
+def __mathematical(f):
+	def proc(s):
+		a = s.pop()
+		b = s.pop()
+		s.append(f(b,a))
+	return proc
+
+ops["+"] = __mathematical(lambda a,b: a+b)
+ops["-"] = __mathematical(lambda a,b: a-b)
+ops["*"] = __mathematical(lambda a,b: a*b)
+ops["/"] = __mathematical(lambda a,b: a/b)
+ops["%"] = __mathematical(lambda a,b: a%b)
+
+# ====================
+# Second stack
+# ====================
+
+SSTACK = []
+
+def api_save(s):
+	SSTACK.append(s.pop())
+
+def api_restore(s):
+	s.append(SSTACK.pop())
