@@ -36,6 +36,13 @@ def first_compile(arr):
 		token=arr[pos]
 		pos += 1
 		if token.type == T_SPC:
+			# SPC token types
+			#   =name - variable setter with "name"
+			#   $name - variable getter with "name"
+			#   @name - converts label address to int and pushes to stack
+			#   :name - defines new label (Need to be closed with ":") 
+			#   :     - ends up current label
+			#    name - simple call
 			# Get token multiplier (*123 after token name)
 			tokVal, tokMul = check_token_multiplier(token.value)
 			# =name will be replaced with "name" set
