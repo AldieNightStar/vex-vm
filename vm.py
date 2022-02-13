@@ -1,5 +1,7 @@
 from vexcommon import *
 
+ops={}
+
 def api_print(s):
 	print(s.pop())
 
@@ -67,3 +69,33 @@ def api_not(s):
 		s.append(0)
 	else:
 		s.append(1)
+
+def __logical(f):
+	def log(s):
+		b = s.pop()
+		a = s.pop()
+		if f(a,b):
+			s.append(1)
+		else:
+			s.append(0)
+	return log
+
+ops["=="]  = __logical(lambda a, b: a == b)
+ops["!="]  = __logical(lambda a, b: a != b)
+ops[">"]   = __logical(lambda a, b: a >  b)
+ops["<"]   = __logical(lambda a, b: a <  b)
+ops[">="]  = __logical(lambda a, b: a >= b)
+ops["<="]  = __logical(lambda a, b: a <= b)
+
+
+
+# ====================
+# Memory
+# ====================
+MEM = {}
+
+def api_set(s):
+	s.append(MEM[s.pop()])
+
+def api_get(s):
+	MEM[s.pop()] = s.pop()

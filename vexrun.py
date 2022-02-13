@@ -5,6 +5,11 @@ def api_get(api, name):
 	f = getattr(api, 'api_'+name, None)
 	if f != None:
 		return f
+	ops = getattr(api, 'ops', None)
+	if ops != None:
+		f = ops.get(name)
+		if f != None:
+			return f
 	return None
 
 def parse_dat(dat):

@@ -1,43 +1,39 @@
 [
     [
+        "CALL",
+        "NOP"
+    ],
+    [
         "PUSH",
-        100.0
+        10.0
+    ],
+    [
+        "PUSH",
+        20.0
     ],
     [
         "CALL",
-        "dup"
+        "<"
+    ],
+    [
+        "PUSH",
+        7
     ],
     [
         "CALL",
-        "dup"
+        "then"
     ],
     [
         "CALL",
-        "dup"
+        "ret"
     ],
     [
         "CALL",
-        "dup"
+        "NOP"
     ],
     [
-        "CALL",
-        "dup"
-    ],
-    [
-        "CALL",
-        "dup"
-    ],
-    [
-        "CALL",
-        "dup"
-    ],
-    [
-        "CALL",
-        "dup"
-    ],
-    [
-        "CALL",
-        "dup"
+        "PUSH",
+        "OK"
     ],
     [
         "CALL",
@@ -45,38 +41,6 @@
     ],
     [
         "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
+        "ret"
     ]
 ]

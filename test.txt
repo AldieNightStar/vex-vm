@@ -1,0 +1,7 @@
+:main
+	10 20 < @ok then
+:
+
+:ok
+	"OK" print
+:
