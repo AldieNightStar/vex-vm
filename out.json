@@ -5,39 +5,19 @@
     ],
     [
         "PUSH",
-        3.0
+        10.0
     ],
     [
         "PUSH",
-        "a"
+        20.0
     ],
     [
         "CALL",
-        "set"
-    ],
-    [
-        "PUSH",
-        "a"
-    ],
-    [
-        "CALL",
-        "get"
-    ],
-    [
-        "CALL",
-        "repeat"
-    ],
-    [
-        "CALL",
-        "iter"
+        "eq"
     ],
     [
         "CALL",
         "print"
-    ],
-    [
-        "CALL",
-        "loop"
     ],
     [
         "CALL",

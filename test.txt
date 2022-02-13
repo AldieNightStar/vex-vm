@@ -1,7 +1,3 @@
 :main
-	3 =a
-
-	$a repeat
-		iter print
-	loop
+	10 20 eq print
 :

@@ -17,8 +17,11 @@ def parse_dat(dat):
 		raise Exception("Run data is not list")
 	return dat
 
-def run(api, dat):
-	stack = []
+def run(api, dat, toAdd=None):
+	stack = [10, 100, 200]
+	if toAdd!=None:
+		for a in toAdd:
+			stack.append(a)
 	dat = parse_dat(dat)
 	dat_len = len(dat)
 	ip = 0
@@ -51,10 +54,14 @@ if __name__ == "__main__":
 	import sys
 	args = sys.argv[1:]
 	if len(args) < 1:
-		print("Arguments: FILE")
-		print("\tFILE - file to run")
+		print("Arguments: FILE [args...]")
+		print("\tFILE   - file to run")
+		print("\t[args] - will be added to the stack")
 		sys.exit(-1)
 	with open(args[0]) as f:
 		import vm
 		j = json.load(f)
-		run(vm, j)
+		toAdd = None
+		if len(args) > 1:
+			toAdd = args[1:]
+		run(vm, j, toAdd)

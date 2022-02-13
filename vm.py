@@ -2,6 +2,10 @@ from vexcommon import *
 
 ops={}
 
+# ====================
+# Debugging
+# ====================
+
 def api_print(ip, s):
 	if len(s) < 1:
 		print("Nothing to pop()")
@@ -12,6 +16,10 @@ def api_dump(ip, s):
 	print("DUMP:")
 	print("\tSTACK 1", s)
 	print("\tSTACK 2", SSTACK)
+
+def api_pause(ip, s):
+	api_dump(ip, s)
+	input(f"pos:{ip} || PAUSED!!!")
 
 # ====================
 # REPEAT LOOP
@@ -69,6 +77,9 @@ def api_swap(ip, s):
 	s.append(a)
 	s.append(b)
 
+def api_slen(ip, s):
+	s.append(len(s))
+
 
 # ====================
 # Logical
@@ -97,8 +108,8 @@ def __logical(f):
 			s.append(0)
 	return log
 
-ops["=="]  = __logical(lambda a, b: a == b)
-ops["!="]  = __logical(lambda a, b: a != b)
+ops["eq"]  = __logical(lambda a, b: a == b)
+ops["neq"]  = __logical(lambda a, b: a != b)
 ops[">"]   = __logical(lambda a, b: a >  b)
 ops["<"]   = __logical(lambda a, b: a <  b)
 ops[">="]  = __logical(lambda a, b: a >= b)
@@ -153,6 +164,18 @@ ops["-"] = __mathematical(lambda a,b: a-b)
 ops["*"] = __mathematical(lambda a,b: a*b)
 ops["/"] = __mathematical(lambda a,b: a/b)
 ops["%"] = __mathematical(lambda a,b: a%b)
+
+def api_goto(ip, s):
+	return int(s.pop())
+
+def _inc(ip, s):
+	s.append(s.pop() + 1)
+
+def _dec(ip, s):
+	s.append(s.pop() - 1)
+
+ops["--"] = _dec
+ops["++"] = _inc
 
 # ====================
 # Second stack
