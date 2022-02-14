@@ -1,19 +1,10 @@
 :main
-	10 =a
-	20 =b
+	none 10 20 30 40 array =arr
 
-	global
-		$a print
-	endglobal
+	skip :E
+		print
+	:
+	$arr @E foreach
 
-	$a print
-	$b print
-
-	local
-		$a print
-		$b print
-	endlocal
-
-	$a print
-	$b print
+	"OK" print
 :

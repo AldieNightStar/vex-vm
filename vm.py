@@ -107,6 +107,9 @@ def api_is_none(ip, s):
 	else:
 		s.append(0)
 
+def api_none(ip, s):
+	s.append(None)
+
 def __logical(f):
 	def log(ip, s):
 		b = s.pop()
@@ -229,3 +232,30 @@ def api_save(ip, s):
 
 def api_restore(ip, s):
 	s.append(SSTACK.pop())
+
+# ====================
+# Arrays
+# ====================
+
+def api_array(ip, s):
+	arr = []
+	while True:
+		el = tryPop(s)
+		if el == None:
+			break
+		arr.insert(0, el)
+	s.append(arr)
+
+# $array @label foreach
+def api_foreach(ip, s):
+	lab = tryPop(s)
+	arr = tryPop(s)
+	if not type(arr) is list:
+		return
+	s.append(ip)
+	for i in range(len(arr)):
+		el = arr[i]
+		if i!=0:
+			s.append(lab)
+		s.append(el)
+	return lab

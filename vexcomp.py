@@ -1,12 +1,9 @@
-from lex import lex as llex, T_STR, T_SPC, T_NUM
+from lex import lex as lex, T_STR, T_SPC, T_NUM
 import os.path
 import json
 from vexcommon import *
 
 TEST=True
-
-def lex(src):
-	return llex(src)
 
 def check_token_multiplier(s): # Returns token, count
 	if "*" in s and len(s) > 1:
@@ -43,7 +40,7 @@ def first_compile(arr):
 			#   @name - converts label address to int and pushes to stack
 			#   :name - defines new label (Need to be closed with ":") 
 			#   :     - ends up current label
-			#    name - simple call
+			#   name  - simple call
 			# Get token multiplier (*123 after token name)
 			tokVal, tokMul = check_token_multiplier(token.value)
 			# =name will be replaced with "name" lset
