@@ -3,6 +3,36 @@ import os.path
 import json
 from vexcommon import *
 
+class Labels:
+	def __init__(self):
+		# map: str -> list[pos:int]
+		self.labs = {}
+	def putLabel(self, name, pos):
+		arr = self.labs.get(name)
+		if arr == None:
+			arr = []
+			self.labs[name] = arr
+		arr.append(pos)
+
+	# Get label according to pos
+	def getLabel(self, name, curpos):
+		arr = self.labs.get(name)
+		if arr == None:
+			return None
+		# if .name (starts with '.') then find label with previous pos than current
+		if name.startswith("."):
+			for pos in reversed(arr):
+				if pos < curpos:
+					return pos
+		else:
+			# If name not starts with "." then just get the last defined label
+			if len(arr) > 1:
+				return arr[-1]
+		return None
+
+	def contains(self, name):
+		return name in self.labs
+
 TEST=True
 
 def check_token_multiplier(s): # Returns token, count
@@ -108,17 +138,16 @@ def process_nops(arr):
 			res.append(a)
 	return res
 
-
 # Here we will replace label names with numbers.
 # Also label declarations will replaced with NOP's
 def process_labels(arr):
 	pos = 0
-	labs = {}
+	labs = Labels()
 	# Find labels, replace declarations with NOP's
 	while pos < len(arr):
 		token = arr[pos] # token: (TYPE, val)
 		if token[0] == T_LABEL:
-			labs[token[1]] = pos
+			labs.putLabel(token[1], pos)
 			arr[pos] = NOP
 		elif token[0] == T_LABEL_END:
 			arr[pos] = RET
@@ -131,11 +160,11 @@ def process_labels(arr):
 			pos+=1
 			continue
 		elif token[0]==T_CALL:
-			if token[1] in labs:
-				arr[pos] = (T_CALL_STATIC, labs[token[1]])
+			if labs.contains(token[1]):
+				arr[pos] = (T_CALL_STATIC, labs.getLabel(token[1], pos))
 		elif token[0]==T_PUSHLABELPOS:
-			if token[1] in labs:
-				arr[pos] = (T_PUSH, labs[token[1]])
+			if labs.contains(token[1]):
+				arr[pos] = (T_PUSH, labs.getLabel(token[1], pos))
 		pos+=1
 	return arr
 

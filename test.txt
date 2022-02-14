@@ -1,10 +1,8 @@
 :main
-	none 10 20 30 40 array =arr
-
-	skip :E
-		print
-	:
-	$arr @E foreach
-
-	"OK" print
+	skip :.z "1" print :
+	.z
+	skip :.z "2" print :
+	.z*3
+	skip :.z "3" print :
+	.z*5
 :
