@@ -255,12 +255,15 @@ def api_array(ip, s, retStack):
 def api_foreach(ip, s, retStack):
 	lab = tryPop(s)
 	arr = tryPop(s)
-	if not type(arr) is list:
+	if not type(arr) is list or len(arr) < 1:
 		return
 	retStack.append(ip)
-	for i in range(len(arr)):
+	lastId = len(arr)-1
+	i = lastId
+	while i>=0:
 		el = arr[i]
-		if i!=0:
+		if i!=lastId:
 			retStack.append(lab)
 		s.append(el)
+		i-=1
 	return lab

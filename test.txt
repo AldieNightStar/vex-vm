@@ -2,5 +2,6 @@
 	:.test
 		print
 	:
-	none 10 20 30 40 array @.test foreach
+	none 10 20 30 40 "EL" array
+		@.test foreach
 :
