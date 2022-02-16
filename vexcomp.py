@@ -26,7 +26,7 @@ class Labels:
 					return pos
 		else:
 			# If name not starts with "." then just get the last defined label
-			if len(arr) > 1:
+			if len(arr) > 0:
 				return arr[-1]
 		return None
 

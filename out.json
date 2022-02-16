@@ -4,100 +4,16 @@
         "NOP"
     ],
     [
-        "GOTO_STATIC",
-        6
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        "1"
-    ],
-    [
-        "CALL",
-        "print"
+        "CALL_STATIC",
+        3
     ],
     [
         "CALL",
         "ret"
     ],
     [
-        "CALL_STATIC",
-        2
-    ],
-    [
-        "GOTO_STATIC",
-        12
-    ],
-    [
         "CALL",
         "NOP"
-    ],
-    [
-        "PUSH",
-        "2"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL_STATIC",
-        8
-    ],
-    [
-        "CALL_STATIC",
-        8
-    ],
-    [
-        "CALL_STATIC",
-        8
-    ],
-    [
-        "GOTO_STATIC",
-        20
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "PUSH",
-        "3"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL_STATIC",
-        16
-    ],
-    [
-        "CALL_STATIC",
-        16
-    ],
-    [
-        "CALL_STATIC",
-        16
-    ],
-    [
-        "CALL_STATIC",
-        16
-    ],
-    [
-        "CALL_STATIC",
-        16
     ],
     [
         "CALL",
