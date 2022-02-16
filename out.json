@@ -5,15 +5,11 @@
     ],
     [
         "GOTO_STATIC",
-        6
+        5
     ],
     [
         "CALL",
         "NOP"
-    ],
-    [
-        "PUSH",
-        "OK"
     ],
     [
         "CALL",
@@ -24,8 +20,28 @@
         "ret"
     ],
     [
+        "CALL",
+        "none"
+    ],
+    [
         "PUSH",
-        1.0
+        10.0
+    ],
+    [
+        "PUSH",
+        20.0
+    ],
+    [
+        "PUSH",
+        30.0
+    ],
+    [
+        "PUSH",
+        40.0
+    ],
+    [
+        "CALL",
+        "array"
     ],
     [
         "PUSH",
@@ -33,15 +49,7 @@
     ],
     [
         "CALL",
-        "then"
-    ],
-    [
-        "PUSH",
-        "THEN"
-    ],
-    [
-        "CALL",
-        "print"
+        "foreach"
     ],
     [
         "CALL",

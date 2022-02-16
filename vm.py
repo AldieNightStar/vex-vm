@@ -80,6 +80,11 @@ def api_swap(ip, s, retStack):
 def api_slen(ip, s, retStack):
 	s.append(len(s))
 
+def api_retpop(ip, s, retStack):
+	s.append(retStack.pop())
+
+def api_retpush(ip, s, retStack):
+	retStack.append(s.pop())
 
 # ====================
 # Logical
@@ -107,7 +112,7 @@ def api_is_none(ip, s, retStack):
 	else:
 		s.append(0)
 
-def api_none(ip, s):
+def api_none(ip, s, retStack):
 	s.append(None)
 
 def __logical(f):
@@ -252,10 +257,10 @@ def api_foreach(ip, s, retStack):
 	arr = tryPop(s)
 	if not type(arr) is list:
 		return
-	s.append(ip)
+	retStack.append(ip)
 	for i in range(len(arr)):
 		el = arr[i]
 		if i!=0:
-			s.append(lab)
+			retStack.append(lab)
 		s.append(el)
 	return lab

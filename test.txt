@@ -1,7 +1,6 @@
 :main
 	:.test
-		"OK" print
+		print
 	:
-	1 @.test then
-	"THEN" print
+	none 10 20 30 40 array @.test foreach
 :
