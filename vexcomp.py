@@ -154,6 +154,8 @@ def process_labels(arr):
 	pos = 0
 	while pos < len(arr):
 		token = arr[pos]
+		if token[0]==T_CALL and token[1] == "here":
+			arr[pos] = (T_PUSH, pos+1)
 		if token[0]==T_CALL and token[1] in builtin: # Ignore built in commands
 			pos+=1
 			continue

@@ -1,5 +1,4 @@
 :main
-	test print
+	here here here print print print
+	# Must be : 4, 3, 2
 :
-
-:test 1 swap :

@@ -32,8 +32,6 @@ def run(api, dat, toAdd=None):
 			if op[1] == "NOP": continue
 			elif op[1] == "ret": # Restore IP from stack
 				ip = int(tryPop(stack, 0xFFFFFFFF))
-			elif op[1] == "here": # Put IP to the stack
-				stack.append(ip)
 			else: # Functions from api
 				f = api_get(api, op[1])
 				if f == None:
