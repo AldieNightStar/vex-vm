@@ -1,9 +1,12 @@
-:init main :
-
 :main
-	
+	local
+		0 =a
+		1000 repeat
+			1000 repeat
+				$a ++ =a
+			loop
+			:.mod $a print :
+			$a 1000 % 0 eq @.mod then
+		loop
+	endlocal
 :
-
-:swap4 local
-	=a =b =c =d $a $c $b $d
-endlocal :

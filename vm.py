@@ -116,7 +116,7 @@ def api_none(ip, s, retStack):
 	s.append(None)
 
 def __logical(f):
-	def log(ip, s):
+	def log(ip, s, retStack):
 		b = s.pop()
 		a = s.pop()
 		if f(a,b):

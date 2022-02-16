@@ -4,60 +4,12 @@
         "NOP"
     ],
     [
-        "CALL_STATIC",
-        3
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "CALL",
-        "ret"
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
         "CALL",
         "local"
     ],
     [
         "PUSH",
-        "a"
-    ],
-    [
-        "CALL",
-        "lset"
-    ],
-    [
-        "PUSH",
-        "b"
-    ],
-    [
-        "CALL",
-        "lset"
-    ],
-    [
-        "PUSH",
-        "c"
-    ],
-    [
-        "CALL",
-        "lset"
-    ],
-    [
-        "PUSH",
-        "d"
-    ],
-    [
-        "CALL",
-        "lset"
+        0.0
     ],
     [
         "PUSH",
@@ -65,11 +17,75 @@
     ],
     [
         "CALL",
-        "lget"
+        "lset"
     ],
     [
         "PUSH",
-        "c"
+        1000.0
+    ],
+    [
+        "CALL",
+        "repeat"
+    ],
+    [
+        "PUSH",
+        1000.0
+    ],
+    [
+        "CALL",
+        "repeat"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "++"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lset"
+    ],
+    [
+        "CALL",
+        "loop"
+    ],
+    [
+        "GOTO_STATIC",
+        21
+    ],
+    [
+        "CALL",
+        "NOP"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "ret"
+    ],
+    [
+        "PUSH",
+        "a"
     ],
     [
         "CALL",
@@ -77,19 +93,31 @@
     ],
     [
         "PUSH",
-        "b"
+        1000.0
     ],
     [
         "CALL",
-        "lget"
+        "%"
     ],
     [
         "PUSH",
-        "d"
+        0.0
     ],
     [
         "CALL",
-        "lget"
+        "eq"
+    ],
+    [
+        "PUSH",
+        16
+    ],
+    [
+        "CALL",
+        "then"
+    ],
+    [
+        "CALL",
+        "loop"
     ],
     [
         "CALL",
