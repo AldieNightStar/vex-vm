@@ -1,4 +1,6 @@
 :main
-	here here here print print print
-	# Must be : 4, 3, 2
+	:.test
+		print print
+	:
+	10 20 .test
 :

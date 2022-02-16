@@ -92,6 +92,9 @@ def first_compile(arr):
 			# :name - means label declaration	
 			elif tokVal.startswith(":") and len(tokVal) > 1:
 				lname = tokVal[1:]
+				# Label with . at start will be automatically skipped
+				if lname.startswith("."):
+					res.append((T_CALL, "skip"))
 				res.append((T_LABEL, lname))
 				labelStack.append(lname)
 			# : - means label declaration end
@@ -120,7 +123,7 @@ def process_skips(arr):
 			nextTok = arr[pos+1]
 			# IF token is label, find it's end
 			if nextTok[0] == T_LABEL:
-				# Nake (CALL_STATIC, label_end_pos)
+				# Make (CALL_STATIC, label_end_pos)
 				endPos = find_label_end(arr, pos, nextTok[1])
 				if endPos != None:
 					arr[pos] = (T_GOTO_STATIC, endPos+1)

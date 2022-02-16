@@ -4,28 +4,36 @@
         "NOP"
     ],
     [
+        "GOTO_STATIC",
+        6
+    ],
+    [
+        "CALL",
+        "NOP"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "print"
+    ],
+    [
+        "CALL",
+        "ret"
+    ],
+    [
         "PUSH",
+        10.0
+    ],
+    [
+        "PUSH",
+        20.0
+    ],
+    [
+        "CALL_STATIC",
         2
-    ],
-    [
-        "PUSH",
-        3
-    ],
-    [
-        "PUSH",
-        4
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
-    ],
-    [
-        "CALL",
-        "print"
     ],
     [
         "CALL",
