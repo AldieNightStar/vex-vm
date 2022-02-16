@@ -4,16 +4,8 @@
         "NOP"
     ],
     [
-        "GOTO_STATIC",
-        5
-    ],
-    [
-        "CALL",
-        "NOP"
-    ],
-    [
-        "CALL",
-        "print"
+        "CALL_STATIC",
+        3
     ],
     [
         "CALL",
@@ -21,39 +13,87 @@
     ],
     [
         "CALL",
-        "none"
-    ],
-    [
-        "PUSH",
-        10.0
-    ],
-    [
-        "PUSH",
-        20.0
-    ],
-    [
-        "PUSH",
-        30.0
-    ],
-    [
-        "PUSH",
-        40.0
-    ],
-    [
-        "PUSH",
-        "EL"
+        "NOP"
     ],
     [
         "CALL",
-        "array"
-    ],
-    [
-        "PUSH",
-        2
+        "ret"
     ],
     [
         "CALL",
-        "foreach"
+        "NOP"
+    ],
+    [
+        "CALL",
+        "local"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lset"
+    ],
+    [
+        "PUSH",
+        "b"
+    ],
+    [
+        "CALL",
+        "lset"
+    ],
+    [
+        "PUSH",
+        "c"
+    ],
+    [
+        "CALL",
+        "lset"
+    ],
+    [
+        "PUSH",
+        "d"
+    ],
+    [
+        "CALL",
+        "lset"
+    ],
+    [
+        "PUSH",
+        "a"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "PUSH",
+        "c"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "PUSH",
+        "b"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "PUSH",
+        "d"
+    ],
+    [
+        "CALL",
+        "lget"
+    ],
+    [
+        "CALL",
+        "endlocal"
     ],
     [
         "CALL",

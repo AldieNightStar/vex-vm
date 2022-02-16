@@ -1,7 +1,9 @@
+:init main :
+
 :main
-	:.test
-		print
-	:
-	none 10 20 30 40 "EL" array
-		@.test foreach
+	
 :
+
+:swap4 local
+	=a =b =c =d $a $c $b $d
+endlocal :

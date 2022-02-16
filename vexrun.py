@@ -17,12 +17,12 @@ def parse_dat(dat):
 		raise Exception("Run data is not list")
 	return dat
 
-def run(api, dat, toAdd=None):
+def run(api, dat, args=None):
 	stack = []
 	retStack = []
-	if toAdd!=None:
-		for a in toAdd:
-			stack.append(a)
+	if args!=None:
+		for arg in args:
+			stack.append(arg)
 	dat = parse_dat(dat)
 	dat_len = len(dat)
 	ip = 0
