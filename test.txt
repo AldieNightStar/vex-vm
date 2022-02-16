@@ -1,6 +1,7 @@
 :main
 	:.test
-		print print
+		"OK" print
 	:
-	10 20 .test
+	1 @.test then
+	"THEN" print
 :

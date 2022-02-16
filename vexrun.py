@@ -19,6 +19,7 @@ def parse_dat(dat):
 
 def run(api, dat, toAdd=None):
 	stack = []
+	retStack = []
 	if toAdd!=None:
 		for a in toAdd:
 			stack.append(a)
@@ -31,16 +32,16 @@ def run(api, dat, toAdd=None):
 		if op[0] == T_CALL:
 			if op[1] == "NOP": continue
 			elif op[1] == "ret": # Restore IP from stack
-				ip = int(tryPop(stack, 0xFFFFFFFF))
+				ip = int(tryPop(retStack, 0xFFFFFFFF))
 			else: # Functions from api
 				f = api_get(api, op[1])
 				if f == None:
 					raise Exception(f"No such command: '{op[1]}'")
-				newIp = f(ip, stack)
+				newIp = f(ip, stack, retStack)
 				if type(newIp) is int:
 					ip = newIp
 		elif op[0] == T_CALL_STATIC: # Push IP to stack and goto
-			stack.append(ip)
+			retStack.append(ip)
 			ip = op[1]
 		elif op[0] == T_PUSH:
 			stack.append(op[1])
