@@ -5,7 +5,11 @@
     ],
     [
         "CALL_STATIC",
-        3
+        4
+    ],
+    [
+        "CALL",
+        "print"
     ],
     [
         "CALL",
@@ -14,6 +18,14 @@
     [
         "CALL",
         "NOP"
+    ],
+    [
+        "PUSH",
+        1.0
+    ],
+    [
+        "CALL",
+        "swap"
     ],
     [
         "CALL",

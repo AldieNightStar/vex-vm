@@ -33,8 +33,6 @@ class Labels:
 	def contains(self, name):
 		return name in self.labs
 
-TEST=True
-
 def check_token_multiplier(s): # Returns token, count
 	if "*" in s and len(s) > 1:
 		arr = s.split("*", 1)
@@ -168,20 +166,20 @@ def process_labels(arr):
 		pos+=1
 	return arr
 
-def compile(src, debug=False):
+def compile(src):
 	arr = lex(src)
 	arr = first_compile(arr)
 	arr = process_nops(arr)
 	arr = process_skips(arr)
 	arr = process_labels(arr) # Latest compilation as labels already defined
-	if debug:
+	if DEBUG_MODE:
 		for i in range(len(arr)):
 			print(i, arr[i])
 		print("------")
 	return arr
 
-def compile_to_json(src, filename, debug=False):
-	arr = compile(src, debug)
+def compile_to_json(src, filename):
+	arr = compile(src)
 	with open(filename, 'w') as f:
 		f.write(json.dumps(arr, indent=4))
 	return arr
@@ -195,5 +193,4 @@ if __name__ == "__main__":
 		print("\tOUTPUT_FILE - Output file after compilation")
 		sys.exit(-1)
 	with open(args[0]) as f:
-		# Last param - debug: True|False
-		compile_to_json(f.read(), args[1], True)
+		compile_to_json(f.read(), args[1])
